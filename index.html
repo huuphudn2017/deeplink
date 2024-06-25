@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Link Handler</title>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <script>
+        // Thời gian chờ trước khi điều hướng (2 giây)
+        var timeout = 2000;
+
+        // Deep Link của ứng dụng (thay thế bằng Deep Link thực tế của bạn)
+        var deepLink = 'yourapp://path/to/content';
+
+        // URL của cửa hàng ứng dụng
+        var androidStoreLink = 'https://play.google.com/store/apps/details?id=com.yourapp';
+        var iosStoreLink = 'https://apps.apple.com/app/id123456789';
+
+        // Hàm kiểm tra hệ điều hành
+        function getMobileOperatingSystem() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Kiểm tra Android
+            if (/android/i.test(userAgent)) {
+                return "Android";
+            }
+
+            // Kiểm tra iOS
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            }
+
+            return "unknown";
+        }
+
+        // Điều hướng đến Deep Link
+        window.location = deepLink;
+
+        // Sau thời gian chờ, nếu không mở được Deep Link, điều hướng đến cửa hàng ứng dụng
+        setTimeout(function() {
+            var os = getMobileOperatingSystem();
+            if (os === "Android") {
+                window.location = androidStoreLink;
+            } else if (os === "iOS") {
+                window.location = iosStoreLink;
+            } else {
+                // Điều hướng mặc định hoặc thông báo lỗi
+                document.body.innerHTML = "<h1>Unsupported device</h1>";
+            }
+        }, timeout);
+    </script>
+</body>
+</html>
