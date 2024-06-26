@@ -1,15 +1,14 @@
-a<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Link Handler</title>
+    <title>Deep Link Handler</title>
 </head>
 
 <body>
     <h1>Redirecting...</h1>
-    <p id="deeplink"></p>
     <script>
         // Thời gian chờ trước khi điều hướng (500ms giây)
         var timeout = 500;
@@ -21,14 +20,11 @@ a<!DOCTYPE html>
         const refCode = urlParams.get('refcode');
 
         // Deep Link của ứng dụng (thay thế bằng Deep Link thực tế của bạn)
-        var deepLink = `insurtechdev://app/refcode/${refCode}`;
-
-        // Hiển thị các tham số trên trang web
-        document.getElementById('deeplink').textContent = `DeepLink: ${deepLink}`;
+        var deepLink = `insurtechdev://refcode/${refCode}`;
 
         // URL của cửa hàng ứng dụng
-        var androidStoreLink = `intent://play.google.com/store/apps/details?id=com.swdev.ychi&referrer=param=${refCode}#Intent;scheme=https;package=com.android.vending;end`;
-        var iosStoreLink = `https://apps.apple.com/app/id284882215?param=${refCode}`;
+        var androidStoreLink = `intent://play.google.com/store/apps/details?id=com.google.android.gm&referrer=param=${refCode}#Intent;scheme=https;package=com.android.vending;end`;
+        var iosStoreLink = `https://apps.apple.com/app/id422689480?param=${refCode}`;
 
         // Hàm kiểm tra hệ điều hành
         function getMobileOperatingSystem() {
@@ -64,8 +60,6 @@ a<!DOCTYPE html>
         } else {
             redirectToDeepLink();
         }
-
-        window.location = deepLink;
 
         // Sau thời gian chờ, nếu không mở được Deep Link, điều hướng đến cửa hàng ứng dụng
         setTimeout(function () {
