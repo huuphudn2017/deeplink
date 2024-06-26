@@ -46,16 +46,18 @@
         }
 
         // Điều hướng đến Deep Link bằng cách sử dụng iframe
-        function redirectToDeepLink() {
-            var iframe = document.createElement('iframe');
-            iframe.style.border = 'none';
-            iframe.style.width = '1px';
-            iframe.style.height = '1px';
-            iframe.src = deepLink;
-            document.body.appendChild(iframe);
-        }
+        // function redirectToDeepLink() {
+        //     var iframe = document.createElement('iframe');
+        //     iframe.style.border = 'none';
+        //     iframe.style.width = '1px';
+        //     iframe.style.height = '1px';
+        //     iframe.src = deepLink;
+        //     document.body.appendChild(iframe);
+        // }
 
-        redirectToDeepLink();
+        // redirectToDeepLink();
+
+        window.location = deepLink;
 
         // Sau thời gian chờ, nếu không mở được Deep Link, điều hướng đến cửa hàng ứng dụng
         setTimeout(function() {
