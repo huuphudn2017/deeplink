@@ -1,4 +1,4 @@
-window.location = deepLink;<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,32 +10,27 @@ window.location = deepLink;<!DOCTYPE html>
 <body>
     <h1>Redirecting...</h1>
     <script>
-        // Thời gian chờ trước khi điều hướng (500ms giây)
         var timeout = 500;
 
-        // Lấy URL hiện tại
         const urlParams = new URLSearchParams(window.location.search);
 
         // Lấy giá trị của các tham số
         const refCode = urlParams.get('refcode');
 
-        // Deep Link của ứng dụng (thay thế bằng Deep Link thực tế của bạn)
-        var deepLink = `insurtechdev://refcode/${refCode}`;
+        var deepLink = `insurtechdev://app/refcode/${refCode}`;
 
         // URL của cửa hàng ứng dụng
-        var androidStoreLink = `intent://play.google.com/store/apps/details?id=com.google.android.gm&referrer=param=${refCode}#Intent;scheme=https;package=com.android.vending;end`;
+        var androidStoreLink = `intent://play.google.com/store/apps/details?id=com.google.android.gm&referrer=param%3D${refCode}#Intent;scheme=https;package=com.android.vending;end`;
         var iosStoreLink = `https://apps.apple.com/app/id422689480?param=${refCode}`;
 
         // Hàm kiểm tra hệ điều hành
         function getMobileOperatingSystem() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-            // Kiểm tra Android
             if (/android/i.test(userAgent)) {
                 return "Android";
             }
 
-            // Kiểm tra iOS
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                 return "iOS";
             }
@@ -45,34 +40,22 @@ window.location = deepLink;<!DOCTYPE html>
 
         var os = getMobileOperatingSystem();
 
-        // Điều hướng đến Deep Link bằng cách sử dụng iframe
-        function redirectToDeepLink() {
-            var iframe = document.createElement('iframe');
-            iframe.style.border = 'none';
-            iframe.style.width = '1px';
-            iframe.style.height = '1px';
-            iframe.src = deepLink;
-            document.body.appendChild(iframe);
-        }
-
         if (os === "Android") {
             window.location = deepLink;
         } else {
-            window.location = deepLink;
-            // redirectToDeepLink();
+            window.location = iosStoreLink;
         }
 
-        // Sau thời gian chờ, nếu không mở được Deep Link, điều hướng đến cửa hàng ứng dụng
         setTimeout(function () {
             if (os === "Android") {
                 window.location = androidStoreLink;
             } else if (os === "iOS") {
                 window.location = iosStoreLink;
             } else {
-                // Điều hướng mặc định hoặc thông báo lỗi
                 document.body.innerHTML = "<h1>Unsupported device</h1>";
             }
         }, timeout);
+
     </script>
 </body>
 
