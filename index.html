@@ -7,9 +7,20 @@
 </head>
 <body>
     <h1>Redirecting...</h1>
+    <p id="params"></p>
     <script>
         // Thời gian chờ trước khi điều hướng (2 giây)
         var timeout = 500;
+
+        // Lấy URL hiện tại
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Lấy giá trị của các tham số
+        const param1 = urlParams.get('param1');
+        const param2 = urlParams.get('param2');
+
+        // Hiển thị các tham số trên trang web
+        document.getElementById('params').textContent = `Param1: ${param1}, Param2: ${param2}`;
 
         // Deep Link của ứng dụng (thay thế bằng Deep Link thực tế của bạn)
         var deepLink = 'insuradmin://';
