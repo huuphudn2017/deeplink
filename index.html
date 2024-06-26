@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Redirecting...</h1>
-    <p id="params"></p>
+    <p id="DeepLink"></p>
     <script>
         // Thời gian chờ trước khi điều hướng (2 giây)
         var timeout = 500;
@@ -18,11 +18,11 @@
         // Lấy giá trị của các tham số
         const refCode = urlParams.get('refcode');
 
-        // Hiển thị các tham số trên trang web
-        document.getElementById('params').textContent = `Param1: ${refCode}`;
-
         // Deep Link của ứng dụng (thay thế bằng Deep Link thực tế của bạn)
-        var deepLink = `insuradmin://`;
+        var deepLink = `insuradmin://refCode/${refCode}`;
+        
+        // Hiển thị các tham số trên trang web
+        document.getElementById('params').textContent = `DeepLink: ${deepLink}`;
 
         // URL của cửa hàng ứng dụng
         var androidStoreLink = `intent://play.google.com/store/apps/details?id=com.facebook.katana&referrer=param=${refCode}#Intent;scheme=https;package=com.android.vending;end`;
