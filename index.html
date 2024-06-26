@@ -9,7 +9,7 @@
     <h1>Redirecting...</h1>
     <p id="deeplink"></p>
     <script>
-        // Thời gian chờ trước khi điều hướng (2 giây)
+        // Thời gian chờ trước khi điều hướng (500ms giây)
         var timeout = 500;
 
         // Lấy URL hiện tại
@@ -19,7 +19,7 @@
         const refCode = urlParams.get('refcode');
 
         // Deep Link của ứng dụng (thay thế bằng Deep Link thực tế của bạn)
-        var deepLink = `insuradmin://refcode`;
+        var deepLink = `insuradmin://`;
         
         // Hiển thị các tham số trên trang web
         document.getElementById('deeplink').textContent = `DeepLink: ${deepLink}`;
