@@ -21,13 +21,13 @@ a<!DOCTYPE html>
         const refCode = urlParams.get('refcode');
 
         // Deep Link của ứng dụng (thay thế bằng Deep Link thực tế của bạn)
-        var deepLink = `insuradmin://app/refcode/${refCode}`;
+        var deepLink = `insurtechdev://app/refcode/${refCode}`;
 
         // Hiển thị các tham số trên trang web
         document.getElementById('deeplink').textContent = `DeepLink: ${deepLink}`;
 
         // URL của cửa hàng ứng dụng
-        var androidStoreLink = `intent://play.google.com/store/apps/details?id=com.facebook.katana&referrer=param=${refCode}#Intent;scheme=https;package=com.android.vending;end`;
+        var androidStoreLink = `intent://play.google.com/store/apps/details?id=com.swdev.ychi&referrer=param=${refCode}#Intent;scheme=https;package=com.android.vending;end`;
         var iosStoreLink = `https://apps.apple.com/app/id284882215?param=${refCode}`;
 
         // Hàm kiểm tra hệ điều hành
