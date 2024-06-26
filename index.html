@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+window.location = deepLink;<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -58,7 +58,8 @@
         if (os === "Android") {
             window.location = deepLink;
         } else {
-            redirectToDeepLink();
+            window.location = deepLink;
+            // redirectToDeepLink();
         }
 
         // Sau thời gian chờ, nếu không mở được Deep Link, điều hướng đến cửa hàng ứng dụng
