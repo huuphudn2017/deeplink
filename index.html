@@ -16,18 +16,17 @@
         const urlParams = new URLSearchParams(window.location.search);
 
         // Lấy giá trị của các tham số
-        const param1 = urlParams.get('param1');
-        const param2 = urlParams.get('param2');
+        const refCode = urlParams.get('refcode');
 
         // Hiển thị các tham số trên trang web
-        document.getElementById('params').textContent = `Param1: ${param1}, Param2: ${param2}`;
+        document.getElementById('params').textContent = `Param1: ${refcode}`;
 
         // Deep Link của ứng dụng (thay thế bằng Deep Link thực tế của bạn)
-        var deepLink = 'insuradmin://';
+        var deepLink = `insuradmin://refCode/${refCode}`;
 
         // URL của cửa hàng ứng dụng
-        var androidStoreLink = 'intent://play.google.com/store/apps/details?id=com.facebook.katana#Intent;scheme=https;package=com.android.vending;end';
-        var iosStoreLink = 'https://apps.apple.com/app/id284882215';
+        var androidStoreLink = `intent://play.google.com/store/apps/details?id=com.facebook.katana&referrer=param=${refCode}#Intent;scheme=https;package=com.android.vending;end`;
+        var iosStoreLink = `https://apps.apple.com/app/id284882215?param=${refCode}`;
 
         // Hàm kiểm tra hệ điều hành
         function getMobileOperatingSystem() {
