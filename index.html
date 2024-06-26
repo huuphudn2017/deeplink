@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Redirecting...</h1>
-    <p id="DeepLink"></p>
+    <p id="deepLink"></p>
     <script>
         // Thời gian chờ trước khi điều hướng (2 giây)
         var timeout = 500;
@@ -22,7 +22,7 @@
         var deepLink = `insuradmin://refCode/${refCode}`;
         
         // Hiển thị các tham số trên trang web
-        document.getElementById('params').textContent = `DeepLink: ${deepLink}`;
+        document.getElementById('deepLink').textContent = `DeepLink: ${deepLink}`;
 
         // URL của cửa hàng ứng dụng
         var androidStoreLink = `intent://play.google.com/store/apps/details?id=com.facebook.katana&referrer=param=${refCode}#Intent;scheme=https;package=com.android.vending;end`;
